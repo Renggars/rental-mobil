@@ -153,7 +153,7 @@ const ContactItem = ({
   title,
   content,
 }: {
-  icon: any;
+  icon: React.ReactNode;
   title: string;
   content: string;
 }) => (
