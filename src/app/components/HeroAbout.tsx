@@ -16,7 +16,7 @@ export default function HeroAbout() {
       <div className="absolute inset-0 bg-white/70" />
 
       {/* CONTENT */}
-      <div className="relative z-10 container mx-auto px-6 md:px-12 py-24 sm:py-28">
+      <div className="relative z-10 container mx-auto px-6 md:px-12 py-24 sm:py-44">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
           {/* TEXT */}
           <div className="text-center md:text-left">

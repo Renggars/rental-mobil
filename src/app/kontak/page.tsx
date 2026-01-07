@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
-import HeroAbout from "../app/components/HeroAbout";
+import HeroAbout from "../components/HeroAbout";
 
 const ContactPage = () => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -14,7 +14,7 @@ const ContactPage = () => {
     <main className="bg-slate-50/50 pb-20">
       <HeroAbout />
 
-      <section className="max-w-[1440px] mx-auto px-6 sm:px-16 -mt-16 relative z-30">
+      <section className="max-w-360 mx-auto px-6 sm:px-16 -mt-16 relative z-30">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Kolom 1 & 2: Form Kirim Pesan */}
           <div className="lg:col-span-2 bg-white rounded-3xl shadow-xl shadow-slate-200/50 p-8 md:p-12">
@@ -130,7 +130,7 @@ const ContactPage = () => {
         </div>
 
         {/* Google Maps Section */}
-        <div className="mt-16 bg-white p-4 rounded-3xl shadow-sm border border-slate-100 h-[450px] overflow-hidden">
+        <div className="mt-16 bg-white p-4 rounded-3xl shadow-sm border border-slate-100 h-112.5 overflow-hidden">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126646.209618196!2d112.63028113543662!3d-7.275971714138138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf838184353%3A0x401e8f1fc28c6e0!2sSurabaya%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1715600000000!5m2!1sid!2sid"
             width="100%"

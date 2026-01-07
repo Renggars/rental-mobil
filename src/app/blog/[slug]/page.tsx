@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -11,41 +10,16 @@ import {
   MessageCircle,
   Clock,
 } from "lucide-react";
-import HeroAbout from "@/app/components/HeroAbout"; // Sesuaikan path
+import HeroAbout from "@/app/components/HeroAbout";
+import { BLOG_POSTS } from "../../../../constants/blog";
+import { notFound } from "next/navigation";
+import { use } from "react";
 
-// Data simulasi (Idealnya ini diambil dari API atau file konstanta terpisah)
-const blogPosts = [
-  {
-    id: 1,
-    title: "Panduan Lengkap: Cara Pesan Sewa Mobil di Sinar Abadi",
-    content: `
-      <p>Menyewa mobil di Sinar Abadi kini jauh lebih mudah dan transparan. Bagi Anda yang baru pertama kali ingin menggunakan jasa rental kami, berikut adalah langkah-langkah detailnya:</p>
-      
-      <h3>1. Pilih Armada Melalui Website</h3>
-      <p>Kunjungi halaman armada kami dan pilih mobil yang sesuai dengan kebutuhan Anda. Apakah untuk keluarga besar seperti Xpander atau untuk kebutuhan bisnis.</p>
-      
-      <h3>2. Hubungi Admin via WhatsApp</h3>
-      <p>Klik tombol booking yang tersedia. Anda akan diarahkan langsung ke admin kami untuk pengecekan ketersediaan jadwal.</p>
-      
-      <h3>3. Kirim Persyaratan</h3>
-      <p>Siapkan foto KTP dan SIM A yang masih berlaku sebagai syarat administrasi utama.</p>
-      
-      <h3>4. Konfirmasi & Pembayaran</h3>
-      <p>Setelah jadwal disetujui, lakukan pembayaran uang muka (DP) untuk mengunci unit pilihan Anda.</p>
-    `,
-    image: "/images/blog/booking-guide.jpg",
-    date: "15 Mei 2024",
-    author: "Admin Sinar Abadi",
-    category: "Panduan",
-    readTime: "5 Menit",
-  },
-  // ... post lainnya
-];
+const BlogDetail = ({ params }: { params: Promise<{ slug: string }> }) => {
+  const resolvedParams = use(params);
+  const post = BLOG_POSTS.find((p) => p.slug === resolvedParams.slug);
 
-const BlogDetail = ({ params }: { params: { id: string } }) => {
-  // Mencari data berdasarkan ID dari URL
-  const post =
-    blogPosts.find((p) => p.id === parseInt(params.id)) || blogPosts[0];
+  if (!post) notFound();
 
   return (
     <main className="bg-white pb-20">
@@ -65,48 +39,25 @@ const BlogDetail = ({ params }: { params: { id: string } }) => {
                 Kembali ke Blog
               </Link>
 
-              <div className="flex items-center gap-4 mb-6">
-                <span className="bg-blue-50 text-blue-600 px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider">
-                  {post.category}
-                </span>
-                <div className="flex items-center gap-1 text-slate-400 text-sm">
-                  <Clock size={14} />
-                  <span>{post.readTime} Baca</span>
-                </div>
-              </div>
-
-              <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-8 leading-tight">
-                {post.title}
-              </h1>
-
-              <div className="flex items-center gap-6 mb-10 pb-10 border-b border-slate-100">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-slate-200 rounded-full overflow-hidden relative">
-                    <Image
-                      src="/images/avatar-admin.png"
-                      alt="Author"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-slate-900">
-                      {post.author}
-                    </p>
-                    <p className="text-xs text-slate-400">{post.date}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Featured Image */}
-              <div className="relative h-75 md:h-125 w-full rounded-3xl overflow-hidden mb-12">
+              <div className="relative w-full aspect-square rounded-3xl overflow-hidden mb-12 max-w-97.5 mx-auto justify-start">
+                {" "}
                 <Image
                   src={post.image}
                   alt={post.title}
                   fill
                   className="object-cover"
-                />
+                />{" "}
               </div>
+
+              <div className="flex items-center gap-4 mb-6">
+                <span className="bg-blue-50 text-blue-600 px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider">
+                  {post.category}
+                </span>
+              </div>
+
+              <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-8 leading-tight">
+                {post.title}
+              </h1>
 
               {/* Blog Content */}
               <div
@@ -166,30 +117,30 @@ const BlogDetail = ({ params }: { params: { id: string } }) => {
                 Artikel Terkait
               </h4>
               <div className="space-y-6">
-                {blogPosts
-                  .filter((p) => p.id !== parseInt(params.id))
-                  .map((p) => (
-                    <Link
-                      key={p.id}
-                      href={`/blog/${p.id}`}
-                      className="flex gap-4 group"
-                    >
-                      <div className="relative w-20 h-20 rounded-xl overflow-hidden shrink-0">
-                        <Image
-                          src={p.image}
-                          alt={p.title}
-                          fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-500"
-                        />
-                      </div>
-                      <div>
-                        <h5 className="text-sm font-bold text-slate-900 line-clamp-2 group-hover:text-blue-600 transition-colors">
-                          {p.title}
-                        </h5>
-                        <p className="text-xs text-slate-400 mt-1">{p.date}</p>
-                      </div>
-                    </Link>
-                  ))}
+                {BLOG_POSTS.filter(
+                  async (p) => p.slug !== (await params).slug
+                ).map((p) => (
+                  <Link
+                    key={p.id}
+                    href={`/blog/${p.slug}`}
+                    className="flex gap-4 group"
+                  >
+                    <div className="relative w-20 h-20 rounded-xl overflow-hidden shrink-0">
+                      <Image
+                        src={p.image}
+                        alt={p.title}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                    <div>
+                      <h5 className="text-sm font-bold text-slate-900 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                        {p.title}
+                      </h5>
+                      <p className="text-xs text-slate-400 mt-1">{p.date}</p>
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
