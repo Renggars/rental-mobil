@@ -78,7 +78,7 @@ const About = () => {
 
           <a
             href={"#armada"}
-            className="bg-blue-600 text-white px-10 py-4 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 active:scale-95"
+            className="bg-blue-600 text-xl text-white px-10 py-4 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 active:scale-95"
           >
             Booking Sekarang
           </a>
