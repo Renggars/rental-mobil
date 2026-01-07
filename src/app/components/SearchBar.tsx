@@ -38,10 +38,8 @@ const SearchBar = ({
       className="
         flex flex-col gap-4
         w-full max-w-3xl
-        bg-white
         rounded-full
-        shadow-md
-        px-4 py-2
+       py-2
         sm:flex-row sm:items-center
       "
     >

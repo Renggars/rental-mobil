@@ -47,95 +47,120 @@ const Page = () => {
 
   const displayedCars = showAll ? filteredCars : filteredCars.slice(0, 8);
 
+  const handleRekomendasiWA = () => {
+    const phoneNumber = "628123456789"; // ganti nomor CS
+    const message = `Halo Rentcar
+Saya ingin meminta rekomendasi mobil yang cocok untuk kebutuhan perjalanan saya.
+Bisa dibantu ya?`;
+
+    const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+
+    window.open(url, "_blank");
+  };
+
   return (
     <main className="overflow-hidden bg-slate-50/50">
-      {/* Hero Section yang Konsisten */}
       <HeroAbout />
 
       {/* Stats Singkat Armada */}
-      <div className="max-w-360 mx-auto px-6 sm:px-16 -mt-12 relative z-20">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-white p-6 rounded-2xl shadow-xl shadow-slate-200/60 border border-slate-100 flex items-center gap-4">
-            <div className="p-3 bg-blue-50 rounded-xl">
-              <Car className="text-blue-600" />
+      <div className="max-w-360 mx-auto px-4 sm:px-16 -mt-12 relative z-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+          {/* CARD */}
+          <div className="bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg border border-slate-100 flex items-center gap-3">
+            <div className="p-2 sm:p-3 bg-blue-50 rounded-lg sm:rounded-xl">
+              <Car className="text-blue-600 w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div>
-              <p className="text-xs text-slate-500">Total Armada</p>
-              <p className="font-bold text-slate-900">50+ Unit</p>
+              <p className="text-[11px] sm:text-xs text-slate-500">
+                Total Armada
+              </p>
+              <p className="font-bold text-sm sm:text-base text-slate-900">
+                50+ Unit
+              </p>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-2xl shadow-xl shadow-slate-200/60 border border-slate-100 flex items-center gap-4">
-            <div className="p-3 bg-green-50 rounded-xl">
-              <Users className="text-green-600" />
+
+          <div className="bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg border border-slate-100 flex items-center gap-3">
+            <div className="p-2 sm:p-3 bg-green-50 rounded-lg sm:rounded-xl">
+              <Users className="text-green-600 w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div>
-              <p className="text-xs text-slate-500">Kapasitas</p>
-              <p className="font-bold text-slate-900">2 - 15 Seats</p>
+              <p className="text-[11px] sm:text-xs text-slate-500">Kapasitas</p>
+              <p className="font-bold text-sm sm:text-base text-slate-900">
+                2 – 15 Seats
+              </p>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-2xl shadow-xl shadow-slate-200/60 border border-slate-100 flex items-center gap-4">
-            <div className="p-3 bg-orange-50 rounded-xl">
-              <Calendar className="text-orange-600" />
+
+          <div className="bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg border border-slate-100 flex items-center gap-3">
+            <div className="p-2 sm:p-3 bg-orange-50 rounded-lg sm:rounded-xl">
+              <Calendar className="text-orange-600 w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div>
-              <p className="text-xs text-slate-500">Tahun Unit</p>
-              <p className="font-bold text-slate-900">2020 - 2024</p>
+              <p className="text-[11px] sm:text-xs text-slate-500">
+                Tahun Unit
+              </p>
+              <p className="font-bold text-sm sm:text-base text-slate-900">
+                2020 – 2024
+              </p>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-2xl shadow-xl shadow-slate-200/60 border border-slate-100 flex items-center gap-4">
-            <div className="p-3 bg-purple-50 rounded-xl">
-              <Fuel className="text-purple-600" />
+
+          <div className="bg-white p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg border border-slate-100 flex items-center gap-3">
+            <div className="p-2 sm:p-3 bg-purple-50 rounded-lg sm:rounded-xl">
+              <Fuel className="text-purple-600 w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div>
-              <p className="text-xs text-slate-500">Kondisi</p>
-              <p className="font-bold text-slate-900">Full BBM</p>
+              <p className="text-[11px] sm:text-xs text-slate-500">Kondisi</p>
+              <p className="font-bold text-sm sm:text-base text-slate-900">
+                Full BBM
+              </p>
             </div>
           </div>
         </div>
       </div>
 
       <section
-        className="mt-16 padding-x padding-y max-width scroll-mt-20"
+        className="mt-12 max-w-360 mx-auto sm:px-16 px-6 py-4 scroll-mt-20"
         id="armada"
       >
-        {/* Header Section */}
+        {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-          <div className="home__text-container mt-0!">
+          <div className="max-w-xl">
             <h1 className="text-4xl font-extrabold text-slate-900">
               Katalog Armada
             </h1>
-            <p className="text-slate-600 mt-2">
+            <p className="text-slate-600 mt-2 lg:text-lg">
               Temukan mobil pilihan yang sesuai dengan kebutuhan perjalanan Anda
               di Surabaya.
             </p>
           </div>
-          <div className="flex items-center gap-2 text-sm font-medium text-slate-500 bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm">
-            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+
+          <div className="flex items-center gap-2 lg:text-lg font-medium text-slate-500 bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm">
+            <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
             {filteredCars.length} Mobil Tersedia
           </div>
         </div>
 
-        {/* Filter Section */}
-        <div className="home__filters bg-white p-6 rounded-3xl border border-slate-100 shadow-sm mb-12">
-          <SearchBar onSearch={handleSearch} />
+        {/* Filter */}
+        <SearchBar onSearch={handleSearch} />
 
-          <div className="home__filter-container">
-            <CustomFilter
-              title="Kapasitas Kursi"
-              options={seats}
-              onChange={(option) => setSelectedSeats(option.value)}
-            />
-            <CustomFilter
-              title="Tahun Produksi"
-              options={yearsOfProduction}
-              onChange={(option) => setSelectedYear(option.value)}
-            />
-          </div>
+        <div className="flex flex-wrap justify-end gap-4 mt-3 mb-7">
+          <CustomFilter
+            options={seats}
+            onChange={(option) => setSelectedSeats(option.value)}
+          />
+          <CustomFilter
+            options={yearsOfProduction}
+            onChange={(option) => setSelectedYear(option.value)}
+          />
         </div>
 
-        {/* Grid Cars */}
+        {/* Cars Grid */}
         {displayedCars.length > 0 ? (
-          <div className="home__cars-wrapper">
+          <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14">
             {displayedCars.map((car) => (
               <CarCard car={car} key={car.id} />
             ))}
@@ -157,12 +182,12 @@ const Page = () => {
           </div>
         )}
 
-        {/* See All Button */}
+        {/* Show All */}
         {filteredCars.length > 8 && !showAll && (
           <div className="flex justify-center mt-16">
             <CustomButton
               title="Lihat Semua Armada"
-              containerStyles="bg-blue-600 text-white rounded-xl px-8 py-4 font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200"
+              containerStyles="bg-blue-600 text-white rounded-xl px-8 py-4 font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 cursor-pointer"
               handleClick={() => setShowAll(true)}
             />
           </div>
@@ -171,7 +196,7 @@ const Page = () => {
 
       {/* Section Tambahan: Kenapa Sewa di Kami? */}
       <section className="py-20 bg-slate-900 text-white mt-20">
-        <div className="max-width padding-x grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="max-w-360 mx-auto px-6 sm:px-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl font-bold mb-6">
               Butuh Rekomendasi Mobil?
@@ -180,12 +205,12 @@ const Page = () => {
               Tim kami siap membantu memilihkan armada yang paling efisien untuk
               rute perjalanan Anda. Hubungi kami untuk konsultasi gratis.
             </p>
-            <a
-              href="https://wa.me/your-number"
-              className="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold transition-all"
+            <button
+              onClick={handleRekomendasiWA}
+              className="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl font-bold transition-all active:scale-95 cursor-pointer"
             >
               Tanya CS via WhatsApp
-            </a>
+            </button>
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="p-6 bg-white/5 rounded-2xl border border-white/10">

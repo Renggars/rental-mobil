@@ -54,7 +54,7 @@ const CardCar = ({ car }: CarCardProps) => {
             hover:bg-blue-600 hover:text-white hover:border-blue-600
             shadow-sm hover:shadow-md hover:shadow-blue-200
             transition-all duration-300
-            group/btn
+            group/btn cursor-pointer
           "
         >
           Detail
@@ -118,7 +118,7 @@ const CardCar = ({ car }: CarCardProps) => {
             hover:bg-green-600
             transition-colors
             shadow-lg shadow-green-100
-            active:scale-95
+            active:scale-95 cursor-pointer
           "
         >
           <FaWhatsapp className="text-xl" />
