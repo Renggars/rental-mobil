@@ -19,7 +19,10 @@ const SearchManufacturer = ({
 }: SearchManufacturerProps) => {
   return (
     <div className="relative w-full">
-      <Combobox value={manufacturer} onChange={setManufacturer}>
+      <Combobox
+        value={manufacturer}
+        onChange={(val) => setManufacturer(val ?? "")}
+      >
         {/* Input */}
         <div className="relative">
           <ComboboxButton className="absolute left-4 top-1/2 -translate-y-1/2">
