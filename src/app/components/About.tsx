@@ -4,14 +4,14 @@ const About = () => {
   return (
     <section
       id="tentang-kami"
-      className="pt-10 pb-16 xl:pt-36  bg-white overflow-hidden"
+      className="pt-10 pb-16 xl:pt-36 bg-white overflow-hidden"
     >
       <div className="max-w-360 mx-auto px-6 sm:px-16 flex flex-col lg:flex-row items-center gap-12">
         {/* Bagian Kiri: Visual/Image dengan Dekorasi */}
         <div className="flex-1 relative w-full group">
           <div className="relative z-10 w-full h-65 sm:h-85 lg:h-105 xl:h-125">
             <Image
-              src="/images/mitsubishi-xpander.png" // Ganti dengan path gambar Xpander Anda
+              src="/images/mitsubishi-xpander.png"
               alt="Rentcar Mitsubishi Xpander"
               fill
               className="object-contain z-20 group-hover:scale-105 transition-transform duration-500"
@@ -26,14 +26,14 @@ const About = () => {
         {/* Bagian Kanan*/}
         <div className="flex-1 text-center lg:text-left">
           <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-blue-50 border border-blue-100">
-            <span className="text-primary-blue text-sm font-bold tracking-wider uppercase">
+            <span className="text-blue-600 text-sm font-bold tracking-wider uppercase">
               Rental Mobil No. 1 di Surabaya
             </span>
           </div>
 
           <h2 className="text-2xl sm:text-3xl xl:text-5xl font-extrabold text-slate-900 leading-[1.2] lg:leading-[1.3] mb-6">
             Rentcar: Solusi Transportasi <br className="hidden sm:block" />
-            <span className="text-primary-blue">Andal & Terpercaya</span>
+            <span className="text-blue-600">Andal & Terpercaya</span>
           </h2>
 
           <p className="text-slate-600 mb-2 text-lg text-justify">
@@ -78,7 +78,7 @@ const About = () => {
 
           <a
             href={"#armada"}
-            className="bg-primary-blue text-white px-10 py-4 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 active:scale-95"
+            className="bg-blue-600 text-white px-10 py-4 rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 active:scale-95"
           >
             Booking Sekarang
           </a>

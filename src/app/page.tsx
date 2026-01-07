@@ -50,35 +50,33 @@ export default function Home() {
       <Hero />
       <About />
       <div
-        className="mt-12 padding-x padding-y max-width scroll-mt-20"
+        className="mt-12 max-w-360 mx-auto sm:px-16 px-6 py-4 scroll-mt-20"
         id="armada"
       >
-        <div className="home__text-container">
+        <div className="flex flex-col items-start justify-start gap-y-2.5 text-black-100">
           <h1 className="text-4xl font-extrabold">Katalog Armada</h1>
           <p>Temukan mobil pilihan yang sesuai dengan kebutuhan Anda</p>
         </div>
 
-        <div className="home__filters">
+        <div className="mt-12 w-full flex justify-between items-center flex-wrap gap-5">
           <SearchBar onSearch={handleSearch} />
 
-          <div className="home__filter-container">
+          <div className="flex justify-start flex-wrap items-center gap-2">
             {/* Filter berdasarkan jumlah seats */}
             <CustomFilter
-              title="Seats"
               options={seats}
               onChange={(option) => setSelectedSeats(option.value)}
             />
 
             {/* Filter berdasarkan tahun produksi */}
             <CustomFilter
-              title="Year"
               options={yearsOfProduction}
               onChange={(option) => setSelectedYear(option.value)}
             />
           </div>
         </div>
 
-        <div className="home__cars-wrapper">
+        <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14">
           {displayedCars.map((car, index) => (
             <div
               key={car.id}
@@ -101,7 +99,7 @@ export default function Home() {
         <div className="flex justify-center mt-16">
           <Link
             href="/armada"
-            className="bg-primary-blue text-white px-10 py-3.5 rounded-full font-bold shadow-md hover:bg-blue-700 hover:shadow-lg transition-all text-center"
+            className="bg-blue-600 text-white px-10 py-3.5 rounded-full font-bold shadow-md hover:bg-blue-700 hover:shadow-lg transition-all text-center"
           >
             Lihat Semua Armada
           </Link>

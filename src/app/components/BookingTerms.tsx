@@ -172,7 +172,7 @@ const BookingTerms = () => {
         w-full md:w-auto
         bg-blue-600 px-8 py-4 rounded-xl
         font-bold whitespace-nowrap
-        hover:bg-blue-500 transition-all
+        hover:bg-blue-700 transition-all cursor-pointer
       "
             >
               Hubungi Admin WA

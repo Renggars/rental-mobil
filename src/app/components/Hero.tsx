@@ -16,11 +16,12 @@ const Hero = () => {
           praktis. Rentcar menyediakan berbagai pilihan armada untuk segala
           kebutuhan perjalanan Anda.
         </p>
-
-        <div className="mt-5 ">
+        <div className="mt-6">
           <Link
             href="#armada"
-            className="inline-block px-8 py-4 bg-primary-blue text-white font-bold rounded-full shadow-lg shadow-blue-200 hover:bg-blue-700 active:scale-95 transition-all text-[16px] z-10"
+            className="inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-full
+                       shadow-lg shadow-blue-200 hover:bg-blue-700
+                       active:scale-95 transition-all text-base"
           >
             Lihat Armada
           </Link>
@@ -42,10 +43,16 @@ const Hero = () => {
 
         <div
           className="absolute 
-            top-[55%] sm:top-[30%] xl:-top-10 -right-[40%] sm:-right-1/2 md:-right-[40%]  xl:-right-1/2             bg-hero-bg bg-repeat-round -z-20 
-            w-full h-62.5 sm:h-125 md:h-137.5 xl:h-screen
-            overflow-hidden"
-        />
+            top-[55%] sm:top-[30%] xl:-top-10 -right-[40%] sm:-right-1/2 md:-right-[40%]  xl:-right-1/2 bg-repeat-round w-full h-62.5 sm:h-125 md:h-137.5 xl:h-screen overflow-hidden -z-20 "
+        >
+          <Image
+            src="/hero-bg.png"
+            alt="Hero Background"
+            fill
+            className="object-fill"
+            priority
+          />
+        </div>
       </div>
     </div>
   );

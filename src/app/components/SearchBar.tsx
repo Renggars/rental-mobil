@@ -4,8 +4,11 @@ import React, { useState } from "react";
 import SearchManufacturer from "./SearchManufacturer";
 import Image from "next/image";
 
-const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
-  <button type="submit" className={`-m-3 z-10 ${otherClasses}`}>
+const SearchButton = ({ otherClasses }: { otherClasses?: string }) => (
+  <button
+    type="submit"
+    className={`-m-3 z-10 flex items-center justify-center ${otherClasses}`}
+  >
     <Image
       src="/magnifying-glass.svg"
       alt="magnifying glass"
@@ -30,8 +33,20 @@ const SearchBar = ({
   };
 
   return (
-    <form className="searchbar" onSubmit={handleSubmit}>
-      <div className="searchbar__item">
+    <form
+      onSubmit={handleSubmit}
+      className="
+        flex flex-col gap-4
+        w-full max-w-3xl
+        bg-white
+        rounded-full
+        shadow-md
+        px-4 py-2
+        sm:flex-row sm:items-center
+      "
+    >
+      {/* Manufacturer */}
+      <div className="relative flex items-center flex-1">
         <SearchManufacturer
           manufacturer={manufacturer}
           setManufacturer={setManufacturer}
@@ -39,13 +54,14 @@ const SearchBar = ({
         <SearchButton otherClasses="sm:hidden" />
       </div>
 
-      <div className="searchbar__item">
+      {/* Model */}
+      <div className="relative flex items-center flex-1">
         <Image
-          src={"/model-icon.png"}
+          src="/model-icon.png"
           alt="car model"
-          width={25}
-          height={25}
-          className="absolute w-5 h-5 ml-4"
+          width={20}
+          height={20}
+          className="absolute left-4 w-5 h-5"
         />
         <input
           type="text"
@@ -53,11 +69,21 @@ const SearchBar = ({
           value={model}
           onChange={(e) => setModel(e.target.value)}
           placeholder="Model"
-          className="searchbar__input"
+          className="
+            w-full
+            pl-12 pr-4 py-3
+            rounded-full
+            border border-gray-200
+            focus:outline-none
+            focus:ring-2 focus:ring-primary-blue
+            text-sm
+          "
         />
         <SearchButton otherClasses="sm:hidden" />
       </div>
-      <SearchButton otherClasses="max-sm:hidden" />
+
+      {/* Desktop submit */}
+      <SearchButton otherClasses="hidden sm:flex" />
     </form>
   );
 };

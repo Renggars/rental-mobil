@@ -36,7 +36,6 @@ export interface OptionType {
 }
 
 export type CustomFilterProps = {
-  title: string;
   options: OptionType[];
   onChange: (option: OptionType) => void;
 };
